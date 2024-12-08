@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolate Brownies Recipe</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .recipe-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .recipe-container img {
+            width: 100%; /* Full width for large screens */
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .recipe-details {
+            line-height: 1.6;
+        }
+
+        .recipe-ingredients, .recipe-instructions {
+            margin-bottom: 20px;
+        }
+
+        .recipe-ingredients ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .recipe-instructions ol {
+            margin-left: 20px;
+        }
+
+        .tips {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #f1f1f1;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .recipe-container img {
+                width: 100%; /* Full width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Chocolate Brownies Recipe</h1>
+</header>
+
+<div class="recipe-container">
+    <h2>Chocolate Brownies</h2>
+    <img src="{% static 'images/brownie.jpg' %}" alt="Chocolate Brownies">
+
+    <div class="recipe-details">
+        <div class="recipe-ingredients">
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>1/2 cup (115g) unsalted butter</li>
+                <li>1 cup (200g) granulated sugar</li>
+                <li>2 large eggs</li>
+                <li>1 teaspoon vanilla extract</li>
+                <li>1/3 cup (40g) unsweetened cocoa powder</li>
+                <li>1/2 cup (65g) all-purpose flour</li>
+                <li>1/4 teaspoon salt</li>
+                <li>1/4 teaspoon baking powder</li>
+                <li>1/2 cup (90g) chocolate chips (optional)</li>
+            </ul>
+        </div>
+
+        <div class="recipe-instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Preheat your oven to 350°F (175°C) and grease an 8-inch square baking pan.</li>
+                <li>In a medium saucepan, melt the butter over low heat. Remove from heat and stir in sugar, eggs, and vanilla.</li>
+                <li>Beat in cocoa, flour, salt, and baking powder until well blended. Spread the batter into the prepared pan.</li>
+                <li>If using, sprinkle chocolate chips on top of the batter.</li>
+                <li>Bake for 20 to 25 minutes. Do not overcook; the brownies should be soft in the center.</li>
+                <li>Let them cool before cutting into squares.</li>
+                <li>Enjoy your delicious brownies!</li>
+            </ol>
+        </div>
+    </div>
+    <div class="tips">
+        <h3>Chef's Tips:</h3>
+        <ul>
+            <li>For extra fudgy brownies, underbake slightly and let them set for a few minutes.</li>
+            <li>Add nuts for added crunch and flavor.</li>
+            <li>Try using dark chocolate for a richer taste.</li>
+            <li>Store leftovers in an airtight container at room temperature.</li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 Recipe Blog. All rights reserved.</p>
+</footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Box</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* Comment Box Container */
+        .comment-container {
+            width: 50%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Textarea Styling */
+        textarea {
+            width: 100%;
+            height: 120px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            resize: none;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #4caf50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+        }
+
+        /* Submit Button Styling */
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Display Submitted Comments */
+        .comment-box {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .comment {
+            margin-top: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Leave a Comment</h1>
+
+    <!-- Comment Input Box -->
+    <div class="comment-container">
+        <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+        <button onclick="submitComment()">Submit</button>
+    </div>
+
+    <!-- Display Comments -->
+    <div class="comment-container comment-box">
+        <h3>Comments:</h3>
+        <div id="commentSection"></div>
+    </div>
+
+    <script>
+        function submitComment() {
+            const commentInput = document.getElementById("commentInput");
+            const commentSection = document.getElementById("commentSection");
+
+            if (commentInput.value.trim() === "") {
+                alert("Please write a comment before submitting.");
+                return;
+            }
+
+            // Create a new comment div
+            const newComment = document.createElement("div");
+            newComment.className = "comment";
+            newComment.textContent = commentInput.value;
+
+            // Append the new comment to the comment section
+            commentSection.appendChild(newComment);
+
+            // Clear the textarea
+            commentInput.value = "";
+        }
+    </script>
+
+</body>
+</body>
+</html>

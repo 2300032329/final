@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %} <!-- Load static files -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('{% static "images/login.jpg" %}'); /* Background image */
+            background-size: cover; /* Ensure the image covers the whole screen */
+            background-position: center; /* Center the background image */
+            margin: 0;
+            padding: 60px 20px; /* Increased top padding to move elements down */
+            position: relative;
+            height: 100vh; /* Full height */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        /* Overlay for dimming the background */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+            z-index: 0; /* Send to back */
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Position relative to overlay */
+            z-index: 1; /* Bring to front */
+            margin-top: 60px; /* Move the login box down */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        .messages {
+            margin-bottom: 15px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .messages li {
+            color: red;  /* Change color as needed */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Overlay for dimming effect -->
+<div class="overlay"></div>
+
+<div class="container">
+    <h1>Login</h1>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td><input type="text" name="username" placeholder="Enter Username" required></td>
+            </tr>
+            <tr>
+                <td><input type="password" name="password" placeholder="Enter Password" required></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+    <p>New user? <a href="{% url 'signup' %}">Register here</a></p>
+</div>
+
+</body>
+</html>

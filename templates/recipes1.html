@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+</head>
+<body>
+    <h1>Recipes</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a> - {{ recipe.cooking_time }} minutes
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'recipe_search' %}">Search Recipes</a>
+</body>
+<form method="GET" action="{% url 'recipe_search' %}">
+    <input type="text" name="cuisine" placeholder="Cuisine" />
+    <input type="text" name="difficulty" placeholder="Difficulty" />
+    <input type="text" name="meal_type" placeholder="Meal Type" />
+    <button type="submit">Search</button>
+</form>
+<h2>Recipes</h2>
+<ul>
+    {% for recipe in recipes %}
+        <li>{{ recipe.title }} - {{ recipe.cuisine }} - {{ recipe.difficulty }}</li>
+    {% empty %}
+        <li>No recipes found.</li>
+    {% endfor %}
+</ul>
+
+
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Recipe Recommendation System</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-image: url('{% static "images/p3.jpg" %}'); /* Background image */
+            background-size: cover; /* Ensure the image covers the whole screen */
+            background-position: center; /* Center the background image */
+            margin: 0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 5em;
+            font-family: 'Brush Script MT', cursive;
+            background: linear-gradient(45deg, #006400, #228B22); /* Dark green gradient */
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 3px;
+            margin: 0;
+            padding: 0;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.1);
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end; /* Align items to the right */
+            gap: 30px;
+            margin: 20px 0;
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .auth-links {
+            margin-right: auto; /* Pushes home button to the right */
+        }
+
+        nav a {
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #006400, #228B22); /* Dark green gradient for buttons */
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: background 0.4s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a:hover {
+            background: linear-gradient(45deg, #228B22, #32CD32); /* Slightly lighter green for hover effect */
+            transform: translateY(-3px);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .container h2 {
+    font-size: 2.5em;
+    font-family: 'Brush Script MT', cursive;
+    background: linear-gradient(45deg, #006400, #228B22); /* Dark green gradient */
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    border: 10px solid #006400; /* Thick green border */
+    padding: 30px; /* Adjust padding to fit the text inside the border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+
+        .container p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Recipe Section */
+        .recipes-section {
+            padding: 60px 0;
+            background-color: #f2f2f2;
+        }
+
+        .recipes-section h2 {
+            text-align: center;
+            font-size: 3.5em;
+            font-family: 'Brush Script MT', cursive;
+            background: linear-gradient(45deg, #32CD32, #228B22); /* Gradient effect */
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+.recipes-section h2:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+        }
+
+        .recipes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+.recipe-card {
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+    justify-content: space-between; /* Ensure even spacing */
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%; /* Ensure consistent height for all cards */
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.recipe-card h3 {
+    font-size: 1.5em;
+    margin: 15px 20px 10px;
+    color: #333;
+    text-align: center; /* Center-align the text */
+}
+
+
+        .recipe-card a {
+            display: block;
+            background-color: #5cb85c;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 0 0 8px 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .recipe-card a:hover {
+            background-color: #449d44;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-10px);
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Carousel -->
+<div id="carouselExampleAutoplaying" class="carousel slide carousel-container" data-bs-ride="carousel" data-bs-interval="2000">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/image1.jpg' %}" class="d-block w-100" alt="First Slide">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/image3.jpg' %}" class="d-block w-100" alt="Second Slide">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/image2.jpg' %}" class="d-block w-100" alt="Third Slide">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<header>
+    <h1>Cravin' it!</h1>
+</header>
+ <nav>
+    <a href="{% url 'home' %}">Home</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+
+      <a href="{% url 'signup' %}">Sign Up</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</nav>
+
+
+
+
+
+<div class="container">
+    <h2>Welcome to our website</h2>
+
+</div>
+<!-- Recipe Section -->
+<p>We provide personalized recipe recommendations to satisfy your cravings. Explore our wide variety of recipes tailored just for you!</p>
+<section class="recipes-section">
+    <h2>Here are some recipes that you might like!!</h2>
+    <div class="recipes-container">
+        <div class="recipe-card">
+            <img src="{% static 'images/Grilled.jpg' %}" alt="Recipe 1">
+            <h3>Grilled Chicken Salad</h3>
+            <p>A healthy and delicious salad with perfectly grilled chicken, fresh veggies, and a tangy dressing.</p>
+            <a href="{% url 'grilledchi' %}">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/spegetti.jpg' %}" alt="Recipe 2">
+            <h3>Spaghetti Carbonara</h3>
+            <p>A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper for a creamy, flavorful meal.</p>
+            <a href="{% url 'speg' %}">View Recipe</a> <!-- Updated -->
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/avacado.jpg' %}" alt="Recipe 3">
+            <h3>Avocado Toast</h3>
+            <p>Crispy toast topped with mashed avocado, a squeeze of lime, and a sprinkle of chili flakes.</p>
+            <a href="{% url 'avacado' %}">View Recipe</a> <!-- Updated -->
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/brownie.jpg' %}" alt="Recipe 4">
+            <h3>Chocolate Brownies</h3>
+            <p>Rich and fudgy chocolate brownies with a gooey center, perfect for satisfying your sweet cravings.</p>
+            <a href="{% url 'brownie' %}">View Recipe</a> <!-- Updated -->
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/pancakes.jpg' %}" alt="Pancakes">
+            <h3>Pancakes</h3>
+            <p>Fluffy pancakes served with maple syrup and fresh berries.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/salad.jpg' %}" alt="Caesar Salad">
+            <h3>Caesar Salad</h3>
+            <p>Crisp romaine lettuce with Caesar dressing, croutons, and Parmesan cheese.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/sushi.jpg' %}" alt="Sushi">
+            <h3>Sushi</h3>
+            <p>Fresh sushi rolls with avocado, cucumber, and your choice of protein.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/curry.jpg' %}" alt="Chicken Curry">
+            <h3>Chicken Curry</h3>
+            <p>Aromatic chicken curry with spices served over basmati rice.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/pasta.jpg' %}" alt="Pasta">
+            <h3>Pasta</h3>
+            <p>Delicious spaghetti served with a rich marinara sauce and fresh basil.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/tacos.jpg' %}" alt="Tacos">
+            <h3>Tacos</h3>
+            <p>Soft corn tortillas filled with seasoned beef, lettuce, and cheese.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/omlette.jpg' %}" alt="Omelette">
+            <h3>Omelette</h3>
+            <p>Fluffy omelette filled with cheese, bell peppers, and onions.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/smoothie.jpg' %}" alt="Smoothie">
+            <h3>Smoothie</h3>
+            <p>Refreshing smoothie made with banana, spinach, and almond milk.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/soup.jpg' %}" alt="Tomato Soup">
+            <h3>Tomato Soup</h3>
+            <p>Classic tomato soup served with crusty bread.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/burger.jpg' %}" alt="Burgers">
+            <h3>Burgers</h3>
+            <p>Juicy beef burgers topped with cheese, lettuce, and tomatoes.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+        <div class="recipe-card">
+            <img src="{% static 'images/stir_fry.jpg' %}" alt="Vegetable Stir Fry">
+            <h3>Vegetable Stir Fry</h3>
+            <p>Colorful vegetables stir-fried in a savory sauce served over rice.</p>
+            <a class="view-recipe-btn">View Recipe</a>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <p>We provide personalized recipe recommendations to satisfy your cravings. Explore our wide variety of recipes tailored just for you!</p>
+</div>
+
+<!-- New Heading and Sign-Up Button Section -->
+<div class="container">
+    <h2 class="Times new roman">Cravin' for some more!? Sign up and unlock unlimited recipes, carefully curated for your taste buds!!   <a href="{% url 'signup' %}" class="sign-up-btn">Sign Up Now</a></h2>
+
+</div>
+<body>
+    <h1>Leave a Comment</h1>
+
+    <!-- Comment Input Box -->
+    <div class="comment-container">
+        <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+        <button onclick="submitComment()">Submit</button>
+    </div>
+
+    <!-- Display Comments -->
+    <div class="comment-container comment-box">
+        <h3>Comments:</h3>
+        <div id="commentSection"></div>
+    </div>
+
+ <script>
+        function submitComment() {
+            const commentInput = document.getElementById("commentInput");
+            const commentSection = document.getElementById("commentSection");
+
+            if (commentInput.value.trim() === "") {
+                alert("Please write a comment before submitting.");
+                return;
+            }
+
+            // Create a new comment div
+            const newComment = document.createElement("div");
+            newComment.className = "comment";
+            newComment.textContent = commentInput.value;
+
+            // Append the new comment to the comment section
+            commentSection.appendChild(newComment);
+
+            // Clear the textarea
+            commentInput.value = "";
+        }
+    </script>
+</body>
+<footer>
+    <p>© 2024 Smart Recipe Recommendation System. All Rights Reserved.</p>
+</footer>
+
+</body>
+
+</html>

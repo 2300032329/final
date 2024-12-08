@@ -1,0 +1,262 @@
+    <!DOCTYPE html>
+    {% load static %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hyderabadi Biryani Recipe</title>
+        <style>
+            body {
+                font-family: 'Helvetica Neue', Arial, sans-serif;
+                background-color: #f8f9fa;
+                color: #333;
+                margin: 0;
+                padding: 20px;
+            }
+
+            header {
+                text-align: center;
+                background-color: #FF9800;
+                color: white;
+                padding: 10px 0;
+            }
+
+            h1 {
+                margin: 0;
+            }
+
+            .recipe-container {
+                max-width: 800px;
+                margin: 20px auto;
+                background-color: #fff;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+
+            .recipe-container img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                color: #FF9800;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .recipe-details {
+                line-height: 1.6;
+            }
+
+            .recipe-ingredients, .recipe-instructions {
+                margin-bottom: 20px;
+            }
+
+            .recipe-ingredients ul {
+                list-style-type: disc;
+                margin-left: 20px;
+            }
+
+            .recipe-instructions ol {
+                margin-left: 20px;
+            }
+
+            .tips {
+                background-color: #e9ecef;
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 20px;
+            }
+
+            footer {
+                text-align: center;
+                padding: 10px 0;
+                background-color: #f1f1f1;
+                margin-top: 20px;
+            }
+
+            @media (max-width: 600px) {
+                .recipe-container img {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+    <header>
+        <h1>Hyderabadi Biryani Recipe</h1>
+    </header>
+
+    <div class="recipe-container">
+        <h2>Hyderabadi Biryani</h2>
+        <img src="{% static 'images/bir.jpg' %}" alt="Hyderabadi Biryani">
+
+        <div class="recipe-details">
+            <div class="recipe-ingredients">
+                <h3>Ingredients:</h3>
+                <ul>
+                    <li>500g Basmati rice</li>
+                    <li>500g chicken or mutton, cut into pieces</li>
+                    <li>2 large onions, finely sliced</li>
+                    <li>1 tablespoon ginger-garlic paste</li>
+                    <li>2 tomatoes, chopped</li>
+                    <li>1/2 cup yogurt</li>
+                    <li>2-3 green chilies, slit</li>
+                    <li>1/4 cup fresh coriander leaves, chopped</li>
+                    <li>1/4 cup fresh mint leaves, chopped</li>
+                    <li>2 tablespoons Biryani masala</li>
+                    <li>1 teaspoon garam masala</li>
+                    <li>1 teaspoon turmeric powder</li>
+                    <li>1 tablespoon red chili powder</li>
+                    <li>2 tablespoons lemon juice</li>
+                    <li>Salt, to taste</li>
+                    <li>2 tablespoons ghee</li>
+                    <li>3 cups water for cooking rice</li>
+                    <li>2 tablespoons oil</li>
+                </ul>
+            </div>
+
+            <div class="recipe-instructions">
+                <h3>Instructions:</h3>
+                <ol>
+                    <li>Rinse and soak the basmati rice for 30 minutes.</li>
+                    <li>Heat oil and ghee in a pan. Add the sliced onions and fry until golden brown. Set aside.</li>
+                    <li>In the same pan, add ginger-garlic paste and cook until the raw smell disappears.</li>
+                    <li>Add the chicken or mutton pieces, tomatoes, and cook until the meat is tender.</li>
+                    <li>Add yogurt, Biryani masala, garam masala, turmeric powder, red chili powder, and salt. Cook for 5-10 minutes.</li>
+                    <li>In a separate pot, bring 3 cups of water to a boil. Add the soaked rice, cook until 70% done, and drain the water.</li>
+                    <li>In a large pot, layer the cooked meat mixture and partially cooked rice. Sprinkle the mint leaves, coriander leaves, fried onions, and lemon juice.</li>
+                    <li>Cover the pot with a tight lid and cook on low heat (dum) for 25-30 minutes.</li>
+                    <li>Serve hot with raita or salad. Enjoy your Hyderabadi Biryani!</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="tips">
+            <h3>Chef's Tips:</h3>
+            <ul>
+                <li>Use long-grain basmati rice for the best texture and fragrance.</li>
+                <li>You can also add boiled eggs to the Biryani for extra richness.</li>
+                <li>If using mutton, cook it longer until it is fully tender.</li>
+                <li>For a smoky flavor, you can add a piece of charcoal during the final dum cooking.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Recipe Blog. All rights reserved.</p>
+    </footer>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Comment Box</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f9f9f9;
+                text-align: center;
+            }
+
+            h1 {
+                margin-top: 20px;
+                color: #333;
+            }
+
+            .comment-container {
+                width: 50%;
+                margin: 30px auto;
+                padding: 20px;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            textarea {
+                width: 100%;
+                height: 120px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 10px;
+                font-size: 1rem;
+                resize: none;
+                outline: none;
+            }
+
+            textarea:focus {
+                border-color: #4caf50;
+                box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+            }
+
+            button {
+                margin-top: 15px;
+                padding: 10px 20px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            .comment-box {
+                margin-top: 20px;
+                text-align: left;
+            }
+
+            .comment {
+                margin-top: 10px;
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Leave a Comment</h1>
+
+        <div class="comment-container">
+            <textarea id="commentInput" placeholder="Write your comment here..."></textarea>
+            <button onclick="submitComment()">Submit</button>
+        </div>
+
+        <div class="comment-container comment-box">
+            <h3>Comments:</h3>
+            <div id="commentSection"></div>
+        </div>
+
+        <script>
+            function submitComment() {
+                const commentInput = document.getElementById("commentInput");
+                const commentSection = document.getElementById("commentSection");
+
+                if (commentInput.value.trim() === "") {
+                    alert("Please write a comment before submitting.");
+                    return;
+                }
+
+                const newComment = document.createElement("div");
+                newComment.className = "comment";
+                newComment.textContent = commentInput.value;
+
+                commentSection.appendChild(newComment);
+                commentInput.value = "";
+            }
+        </script>
+
+    </body>
+    </html>

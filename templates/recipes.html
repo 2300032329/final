@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            margin-bottom: 40px;
+        }
+
+        .category h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .category-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-item {
+            background-color: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .category-item h3 {
+            font-size: 1.3em;
+            margin: 10px 0;
+        }
+
+        .category-item p {
+            font-size: 1.1em;
+        }
+
+        .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-item i {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .view-recipe-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .view-recipe-btn:hover {
+            background-color: #388E3C;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recipe Collection</h1>
+
+        <!-- Recipes Assorted by Season -->
+        <div class="category">
+            <h2>Recipes by Season</h2>
+            <div class="category-list">
+                <div class="category-item">
+                    <i>🌸</i>
+                    <h3>Spring</h3>
+                    <p>Light and refreshing dishes perfect for the season.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>☀</i>
+                    <h3>Summer</h3>
+                    <p>Refreshing summer recipes to beat the heat.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍂</i>
+                    <h3>Fall</h3>
+                    <p>Comforting dishes to warm up the season.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>❄</i>
+                    <h3>Winter</h3>
+                    <p>Hearty and filling meals for cold days.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- More categories here... -->
+    </div>
+</body>
+<body>
+    <div class="container">
+
+        <!-- Recipes Assorted by Season -->
+        <div class="category">
+
+
+        <!-- Recipes Assorted by Method -->
+        <div class="category">
+            <h2>Recipes by Method</h2>
+            <div class="category-list">
+                <div class="category-item">
+                    <i>🍲</i>
+                    <h3>Casserole</h3>
+                    <p>Easy and hearty casseroles for any occasion.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>⏲</i>
+                    <h3>Instant Pot</h3>
+                    <p>Quick and flavorful Instant Pot recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🐢</i>
+                    <h3>Slow Cooker</h3>
+                    <p>Set it and forget it with slow cooker recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍽</i>
+                    <h3>Sheet Pan</h3>
+                    <p>One-pan meals with minimal cleanup.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🔥</i>
+                    <h3>Stovetop</h3>
+                    <p>Delicious stovetop meals for quick cooking.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipes Assorted by Ingredient -->
+        <div class="category">
+            <h2>Recipes by Ingredient</h2>
+            <div class="category-list">
+                <div class="category-item">
+                    <i>🥑</i>
+                    <h3>Avocado</h3>
+                    <p>Delicious avocado-based recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🥓</i>
+                    <h3>Bacon</h3>
+                    <p>Bacon lover's dream recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍫</i>
+                    <h3>Chocolate</h3>
+                    <p>Sweet and decadent chocolate recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍋</i>
+                    <h3>Lemon</h3>
+                    <p>Tart and refreshing lemon-based dishes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍅</i>
+                    <h3>Tomato</h3>
+                    <p>Fresh and juicy tomato recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🥦</i>
+                    <h3>Broccoli</h3>
+                    <p>Healthy and nutritious broccoli recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍚</i>
+                    <h3>Rice</h3>
+                    <p>Rice-based dishes for every meal.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍣</i>
+                    <h3>Salmon</h3>
+                    <p>Delicious salmon recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍠</i>
+                    <h3>Sweet Potato</h3>
+                    <p>Sweet potato recipes for all tastes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🥬</i>
+                    <h3>Kale</h3>
+                    <p>Healthy kale dishes for every meal.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍗</i>
+                    <h3>Meat and Chicken</h3>
+                    <p>Hearty meat and chicken recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍄</i>
+                    <h3>Mushroom</h3>
+                    <p>Delicious mushroom-based recipes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipes Assorted by Series -->
+        <div class="category">
+            <h2>Recipes by Series</h2>
+            <div class="category-list">
+                <div class="category-item">
+                    <i>💔</i>
+                    <h3>Feeding a Broken Heart</h3>
+                    <p>Recipes to nourish the soul.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🎄</i>
+                    <h3>Holiday Series</h3>
+                    <p>Festive recipes for every holiday.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🌱</i>
+                    <h3>Plant-Powered January</h3>
+                    <p>Vegan and plant-based dishes.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🚨</i>
+                    <h3>SOS Series</h3>
+                    <p>Quick and easy recipes for busy days.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🍲</i>
+                    <h3>The Soup Series</h3>
+                    <p>Comforting and hearty soups.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+                <div class="category-item">
+                    <i>🚫</i>
+                    <h3>Sugar Free January</h3>
+                    <p>Delicious recipes without added sugars.</p>
+                    <a href="#" class="view-recipe-btn">View Recipes</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
